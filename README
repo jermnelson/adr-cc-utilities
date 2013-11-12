@@ -1,0 +1,4 @@
+# Alliance Digital Repository - Colorado College Utilities
+
+This [Flask][FLASK]-based application provides a simple web interface to
+a set of helper utilities in managing a Fedora Commons digital repository. 
