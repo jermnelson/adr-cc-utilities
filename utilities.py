@@ -18,3 +18,9 @@ from flask_fedora_commons import FedoraCommons
 app = Flask(__app__)
 app.config.from_pyfile('fedora.cfg')
 fedora = FedoraCommons(app)
+
+if __name__ == '__main__':
+    host = '0.0.0.0'
+    port = 8003
+    app.run(host=host,
+            port=port)
