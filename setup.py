@@ -1,6 +1,6 @@
 """
-Alliance Digital Repository - Colorado College Utilities
---------------------------------------------------------
+Setup for Alliance Digital Repository - Colorado College Utilities
+------------------------------------------------------------------
 
 This Flask application provides a lightweight app for a number of utilities
 to help manage a Fedora Commons digital repository
