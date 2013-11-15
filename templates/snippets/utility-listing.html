@@ -1,0 +1,17 @@
+{# Utilities listing #}
+<div class="col-md-4">
+  <div class="list-group">
+   {% if section %}
+    <a  class="list-group-item" href="/">Home</a>
+   {% endif %}
+    <a class="list-group-item {% if section=='mover' %}active{% endif %}" 
+       href="/pid-mover">
+      PID Object Mover
+    </a>
+    <a class="list-group-item {% if section=='batch-add' %}active{% endif %}"
+        href="/batch-template-add ">
+      Add Fedora Object from Template {{ section }}
+    </a>
+  </div>
+{# END Utilities listing #}
+</div>

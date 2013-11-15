@@ -1,0 +1,71 @@
+{% extends 'utility.html' %}
+
+{% block more_css %}
+<style>
+ .pid-input {
+  width: 100px
+ }
+</style>
+{% endblock %}
+
+{% block work_form %}
+<h2>PID Object Mover</h2>
+<p class="lead">Moves a single object or collection in a Fedora Commons Server</p>
+<div class="alert" id="fedora-msg" data-bind="visible: isMessage, text: resultMessage"></div>
+<form class="form-inline well">
+ {# Form #}
+ <div class="form-group">
+  <label>Move source PID</label>
+  <input data-bind="value: sourcePID" 
+         type="text" 
+         name="source_pid"
+         class="form-control pid-input"></input>
+  to <label>target PID</label>
+  <input data-bind="value: collectionPID" 
+         name="collection_pid"
+         type="text" 
+         class="form-control pid-input"></input>
+  <a class="btn btn-primary" href="#" data-bind="click: movePID">Move</a>
+ {# END Form  #}
+ </div> 
+</form>
+{% endblock %}
+
+{% block more_js %}
+<script>
+ function viewModel() {
+   var self = this;
+
+   self.collectionPID = ko.observable();
+   self.isMessage = ko.observable(false);
+   self.resultMessage = ko.observable();
+   self.sourcePID = ko.observable();
+
+   self.movePID = function() {
+    var data = {
+      collection_pid: self.collectionPID(),
+      source_pid: self.sourcePID()
+    }
+    $.ajax({
+      data: data,
+      method: 'POST',
+      url: '/pid-mover',
+      success: function(response) {
+        if(response['result'] == 'error') {
+          $("#fedora-msg").addClass("alert-danger")
+        } else {
+          $("#fedora-msg").addClass("alert-info")
+        } 
+        self.isMessage(true);
+        self.resultMessage(response['message']);
+      }      
+    });
+    self.collectionPID("");
+    self.sourcePID("");
+   }
+
+ }
+
+ ko.applyBindings(new viewModel());
+</script>
+{% endblock %}

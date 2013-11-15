@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block main_view %}
+{# Main View Row #}
+<div class="row">
+  {# Form section #} 
+  <div class="col-md-8">
+   <h1>ADR-CC Utilities</h1>
+  {% block work_form %}{% endblock %}
+  {# END Form section #} 
+  </div>
+  {% include 'snippets/utility-listing.html' %}
+{# END Main View Row #}
+</div>
+{% endblock %}

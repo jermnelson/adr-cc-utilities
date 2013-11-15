@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block main_view %}
+{# Main content Row #}
+<div class="row">
+ {# Main Title #} 
+ <div class="col-md-8">
+    <h1>ADR-CC Utilities</h1>
+    <p class="lead">This web app contains a number of Fedora Commons
+     Utilites for <a href="/pid-mover">moving objects</a> within a repository 
+     and <a href="#">batch creation</a> of Fedora objects from a template. 
+    </p> 
+    <div class="alert alert-danger">
+     <strong>WARNING!</strong> this web app has read/write access to your depository 
+     and is designed to run internally on your institution's network. <strong>DO NOT</strong> 
+     allow open-web access to this web app. 
+    </div>
+ {# END Main Title #} 
+ </div>
+{% include 'snippets/utility-listing.html' %} 
+{# END Main content Row #}
+</div>
+{% endblock %}

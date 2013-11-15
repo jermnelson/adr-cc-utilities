@@ -1,4 +1,5 @@
 *.pyc
 *.swp
+fedora.cfg
 docs/_build
 docs/_templates
