@@ -28,7 +28,8 @@ setup(
     platforms='any',
     install_requires=[
         'Flask',
-        'Flask-FedoraCommons'
+        'Flask-FedoraCommons',
+        'Flask-WTF'
     ],
     classifiers=[
         'Environment :: Web Environment',

@@ -13,6 +13,8 @@ __copyright__ = '(c) 2013 by Jeremy Nelson'
 
 from flask import Flask, request, session, redirect, url_for
 from flask import abort, jsonify, render_template, flash
+from forms import MODSFedoraObjectForm
+
 #! Hack to load Fedora commons Flask Extension for test and usage
 import sys
 sys.path.append("C:\\Users\\jernelson\\Development\\flask-fedora")
@@ -50,12 +52,15 @@ def pid_mover():
     return render_template("pid-mover.html",
                            section='mover')
 
-@app.route("/batch-template-add",)
+@app.route("/batch-template-add")
 def batch_template_add():
     """View for adding one or more Fedora objects to the repository by using a
     template."""
     return render_template('batch-template-add.html',
+                           add_obj_form=MODSFedoraObjectForm(),
                            section='batch-add')
+
+
 
 if __name__ == '__main__':
     host = '0.0.0.0'

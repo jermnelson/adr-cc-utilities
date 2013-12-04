@@ -1,0 +1,324 @@
+{# START addObjectFromTemplate DIV #}
+<div class="well">
+
+   <a name="add-obj-w-template"></a>
+   <p>Adds one or more brief Fedora Objects using a MODS 
+      template of prefilled data to the digital repository.</p>
+   <form method="POST"
+         class="form-horizontal"   
+         role="form">
+	{{ add_obj_form.csrf_token }}
+	{# START Object Select #}
+    <div class="form-group">
+     <label class="col-lg-4 control-label" 
+            for="object_template">
+      {{ add_obj_form.object_template.label }}
+     </label>
+     <div class="col-lg-6">
+      <div class="controls">
+       {{ add_obj_form.object_template(class_="form-control") }}
+      </div>
+     </div>
+    {# END Object Select #}
+    </div>
+	
+    {# START title #}
+    <div class="form-group">
+     <label class="col-lg-4 control-label" 
+            for="title">
+     {{ add_obj_form.title.label }}
+     </label>
+     <div class="col-lg-8">
+       {{ add_obj_form.title(class_="form-control") }}
+     </div>
+    {# END title #}
+    </div>	
+
+    {# START Type of Resource #}
+    <div class="form-group">
+     <label class="control-label col-lg-4" for="type_of_resource">
+      {{ add_obj_form.type_of_resource.label }}
+     </label>
+     <div class="col-lg-4">
+      <div class="controls">
+       {{ add_obj_form.type_of_resource(class_="form-control") }}
+      </div>
+      </div>
+    {# END Type of Resource  #}
+    </div>
+
+
+    {# START creators #}
+    <div class="form-group">
+     <label class="col-sm-4 control-label">
+     {{ add_obj_form.creators.label }}
+     </label>
+     <div class="col-sm-4"> 
+      {{ add_obj_form.creators(class_="form-control") }}
+        <a href="#">
+		 <span class="glyphicon glyphicon-plus-sign"></span> Add
+		</a>
+     </div>		
+    {# END creators #}
+    </div>
+
+	
+	{# START corporate creators #}
+    <div class="form-group">
+     <label class="col-sm-4 control-label">
+     {{ add_obj_form.corporate_creators.label }}
+     </label>
+     <div class="col-sm-4">
+      {{ add_obj_form.corporate_creators(class_="form-control") }}
+        <a href="#">
+		 <span class="glyphicon glyphicon-plus-sign"></span> Add
+		</a>
+     </div>			 
+    {# END corporate creators #}
+    </div>
+	
+    {# START contributors #}
+    <div class="form-group">
+     <label class="control-label col-sm-4" for="contributors">
+     {{ add_obj_form.contributors.label }}
+     </label>
+     {# START size #}
+     <div class="col-sm-4">
+      {{ add_obj_form.contributors(class_="form-control") }}
+      <a href="#">
+        <i class="glyphicon glyphicon-plus-sign"></i> Add
+      </a>
+     </div>
+    {# END contributors #}
+    </div>	
+    
+	{# START corporate contributors #}
+    <div class="form-group">
+     <label class="control-label col-sm-4" for="corporate_contributors ">
+     {{ add_obj_form.corporate_contributors.label }}
+     </label>
+     <div class="col-sm-4">
+      {{ add_obj_form.corporate_contributors(class_="form-control") }}
+      <a href="#">
+        <span class="glyphicon glyphicon-plus-sign"></span> Add
+      </a>
+     </div>
+    {# END corporate contributors #}
+    </div>	
+	
+    {# START Date Created #}
+    <div class="form-group">
+     <label class="control-label col-lg-4" for="date_created">
+       {{ add_obj_form.date_created.label }}
+     </label>
+     <div class="col-lg-4">
+      {{ add_obj_form.date_created(class_="form-control") }}
+     </div>
+	 
+    {# END Date Created #}
+    </div>	
+	
+    {# START Digital Origin #}
+    <div class="form-group">
+     <label class="control-label col-lg-4" for="digital_origin">
+      {{ add_obj_form.digital_origin.label }}
+     </label>
+     <div class="col-lg-4">
+       {{ add_obj_form.digital_origin(class_="form-control") }}
+     </div>
+    {# END digital origin #}
+    </div>	
+	
+	{# START Form #}
+    <div class="form-group">
+     <label class="control-label col-lg-4" for="genre">
+      {{ add_obj_form.form_of.label }}
+     </label>
+     <div class="col-lg-4">
+      <div class="controls">
+       {{ add_obj_form.form_of(class_="form-control") }}
+      </div>
+     </div>
+    {# END Form #}
+    </div>
+	
+	{# START description #}
+    <div class="form-group">
+     <label class="control-label col-lg-4" for="digital_origin">
+     {{ add_obj_form.description.label }}
+     </label>
+     <div class="col-lg-8">
+      <div class="controls">
+      {{  add_obj_form.description(class_="form-control") }}
+      </div>
+     </div>
+    {# END description #}
+    </div>
+	
+    {# START extent #}
+    <div class="form-group" 
+         {# data-bind="visible: showExtent" #}>
+      <label class="control-label col-lg-4" for="extent">
+       {{ add_obj_form.extent.label }}
+      </label>
+      <div class="col-lg-8">
+        {{ add_obj_form.extent }}
+      </div>
+    {# END extent #}
+    </div>
+	
+	{# START admin_note #}
+    <div class="form-group">
+     <label class="control-label col-lg-4" for="admin_note">
+     {{ add_obj_form.admin_note.label }}
+     </label>
+     <div class="col-lg-8">
+      <div class="controls">
+      {{ add_obj_form.admin_note(class_="form-control") }}
+      </div>
+     </div>
+    {# END admin_note #}
+    </div>
+	
+	{# START Use and Reproduction Rights Holder #}
+    <div class="form-group">
+     <label class="control-label col-lg-4" for="rights_holder">
+     {{ add_obj_form.rights_holder.label }}
+     </label>
+     <div class="col-lg-8">
+      <div class="controls">
+      {{ add_obj_form.rights_holder(class_="form-control") }}
+      </div> 
+     </div>
+    {# END Use and Reproduction Rights Holder #}
+    </div>
+
+    {# START people subjects #}
+    <div class="form-group" data-bind="visible: meetingMinutesTemplate">
+     <label class="control-label col-lg-4" for="subject_people">
+     {{ add_obj_form.subject_people.label }}
+     </label>
+     <div class="col-lg-4">
+      <div class="controls">
+      {{ add_obj_form.subject_people(class_="form-control") }}
+      <a href="#" data-bind="click: addPerson" id="AddPersonBtn">
+        <i class="glyphicon glyphicon-plus-sign"></i>
+      </a>
+      </div>
+     </div>
+    {# END people subjects #}
+    </div>
+   {# START place subjects #}
+    <div class="form-group">
+     <label class="control-label col-lg-4" for="subject_places">
+     {{ add_obj_form.subject_places.label }}
+     </label>
+     <div class="col-lg-4">
+      <div class="controls">
+       {{ add_obj_form.subject_places(class_="form-control") }}
+       <a href="#" data-bind="click: addPlace" id="AddPlaceBtn">
+        <i class="glyphicon glyphicon-plus-sign"></i>
+       </a>
+      </div>
+     </div>
+    {# END place subjects #}
+    </div>
+    {# START topic subjects #}
+    <div class="form-group">
+     <label class="control-label col-lg-4" for="sub_topics">
+     {{ add_obj_form.subject_topics.label }}
+     </label>
+     <div class="col-lg-4">
+      <div class="controls">
+      {{ add_obj_form.subject_topics(class_="form-control") }}
+      <a href="#" data-bind="click: addTopic" id="AddTopicBtn">
+       <i class="glyphicon glyphicon-plus-sign"></i>
+      </a>
+      </div>
+     </div>
+    {# END topic subjects #}
+    </div>	
+	
+   {# START date subjects #}
+    <div class="form-group" {# data-bind="visible: showSubjectDates" #}>
+     <label class="control-label col-lg-4" for="subject_dates">
+     {{ add_obj_form.subject_dates.label }}
+     </label>
+     <div class="col-lg-4">
+      <div class="controls">
+      {{ add_obj_form.subject_dates(class_="form-control") }}
+      <a href="#" data-bind="click: addDate" id="AddDateBtn">
+       <i class="glyphicon glyphicon-plus-sign"></i>
+      </a>
+      </div>
+     </div>
+    {# END date subjects #}
+    </div>	
+	
+	{# START organizations #}
+    <div class="form-group">
+     <label class="control-label col-lg-4" for="organizations">
+     {{ add_obj_form.organizations.label }}
+     </label>
+     <div class="col-lg-4">
+      <div class="controls">
+      {{ add_obj_form.organizations(class_="form-control", default="{{ config['INSTITUTION'] }}") }}
+      <a href="#" data-bind="click: addOrganization" id="AddOrgBtn">
+       <i class="glyphicon glyphicon-plus-sign"></i> Add
+      </a>
+      </div>
+     </div>
+    {# END organizations #}
+    </div>
+	
+	
+	{# START frequency #}
+    <div class="form-group" {# data-bind="visible: newsletterTemplate" #}>
+      <label class="control-label col-lg-4" for="frequency">
+      {{ add_obj_form.frequency.label }}
+      </label> 
+      <div class="col-lg-6"> 
+       <div class="controls">
+        {{ add_obj_form.frequency(class_="form-control") }}
+       <strong>Or</strong><br>
+       {{ add_obj_form.frequency_free_form.label }}: 
+       {{ add_obj_form.frequency_free_form(class_="form-control") }}
+       </div>
+      </div>
+    </div>
+    {# END frequency #}
+	
+    {# START Parent Collection PID #}
+    <div class="form-group">
+     <label class="control-label col-lg-4" for="collection_pid">
+       {{ add_obj_form.collection_pid.label }}
+     </label>
+     <div class="col-lg-4">
+       <div class="controls">
+       {{ add_obj_form.collection_pid(class_="form-control") }}
+       </div>
+     </div>
+    {# END Parent Collection PID #}
+    </div> 
+    {# START num_objects #}
+    <div class="form-group">
+      <label class="control-label col-lg-4" for="num_objects">
+      {{ add_obj_form.number_objects.label }}  
+      </label>
+      {# START num_objects controls #}
+      <div class="col-lg-4">
+       {{ add_obj_form.number_objects(class_="form-control") }}  
+      </div>
+    {# END num_objects #}
+    </div>	
+	
+    {# START submit #}
+    <div class="form-group">
+     <div class="controls col-lg-6">
+      <input type="submit" class="btn btn-primary" value="Add Stub Record(s)">
+     </div>
+    {# END submit #}
+    </div>
+    </form>
+  {# END addObjectFromTemplate DIV #}
+  </div>

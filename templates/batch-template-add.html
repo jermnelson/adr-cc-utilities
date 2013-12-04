@@ -2,11 +2,23 @@
 
 {% block work_form %}
  <h2>Add Fedora Objects from a Template</h2>
-
-
+ {% include 'snippets/add-mods-from-template.html' %}
+ {#
+  Currently supporting only MODS but should add Dublin Core and Schema.org
+  and maybe BIBFRAME in the future.
+ <p class="lead">Select a meta-data schema from the list below
+ <ul> 
+  <li><a href="/batch-template-add/dc">Dublin Core</a></li>
+  <li><a href="/batch-template-add/mods">MODS</a></li>
+  <li><a href="/batch-template-add/schema">Schema.org</a></li>
+ </ul>
+ </p>
+ #}
 {% endblock %}
 
 {% block more_js %}
-
-
+<script src="{{ url_for('static', filename='js/mods.js') }}"></script>
+<script>
+ko.applyBindings(new MODSStubViewModel());
+</script>
 {% endblock %}

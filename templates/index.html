@@ -15,6 +15,37 @@
      and is designed to run internally on your institution's network. <strong>DO NOT</strong> 
      allow open-web access to this web app. 
     </div>
+    <h3>Fedora Variables</h3>
+     <table class="table table-striped table-bordered">
+      <thead>
+       <tr>
+        <th>Variable</th>
+        <th>Value</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>FEDORA_ROOT </td>
+          <td>{{ config['FEDORA_ROOT'] }}</td>
+        </tr>
+        <tr>
+         <td>FEDORA_USER</td>
+         <td>{{ config['FEDORA_USER'] }}</td>
+        </tr>
+        <tr>
+         <td>FEDORA_PIDSPACE </td>
+         <td> {{ config['FEDORA_PIDSPACE'] }}</td>
+        </tr>
+        <tr>
+         <td>FEDORA_TEST_ROOT </td>
+         <td> {{ config['FEDORA_TEST_ROOT'] }}</td>
+        </tr>
+        <tr>
+         <td>FEDORA_TEST_PIDSPACE </td>
+         <td> {{ config['FEDORA_TEST_PIDSPACE'] }}</td>
+       </tr>
+      </tbody>
+     </table> 
  {# END Main Title #} 
  </div>
 {% include 'snippets/utility-listing.html' %} 

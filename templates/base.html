@@ -21,17 +21,26 @@
    <div class="container">
     {% block main_view %}
     {% endblock %}
- 
-
-   {#
+    {#
+    <div class="row">
+     <div class="col-md-10">
+       &copy; 2013 by Jeremy Nelson under the <a href="http://creativecommons.org/licenses/by/3.0/deed.en_US">CC 3.0 license</a>. 
+       All source code is available at this 
+       <a href="https://github.com/jermnelson/adr-cc-utilities">github repository</a>
+       under the Apache 2 open-source license.
+     </div>
+    </div>
+   </div>
+   #}
     {% block footer %}
     <div class="row">
-     <footer class="col-md-12">
+     <footer class="col-md-10">
+       <hr>
        <p>This web app was developed by <a href="mailto:jeremy.nelson@coloradocollege.edu">Jeremy Nelson</a> at 
        <a href="http://www.coloradocollege.edu/">Colorado College</a> for use with the 
        <a href="http://dacc.coalliance.org/">Digital Archives of Colorado College</a>, a service of the 
        <a href="http://www.coalliance.org/software/digital-repository">Colorado Alliance of Research Library's
-       Digital Repository</a> service. All source-code is licensed under the Apache 2 and is available at
+       Digital Repository</a> service. All source-code is licensed under the Apache 2 and is available on 
        <a href="https://github.com/jermnelson/adr-cc-utilities">github</a>. All content in this web app
        is copyrighted by Jeremy Nelson and Colorado College under the 
        <a href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported 
@@ -39,8 +48,7 @@
      </footer>
     </div>
     {% endblock %}
-    #}
-   </div>
+  </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
