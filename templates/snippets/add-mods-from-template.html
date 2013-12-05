@@ -8,20 +8,6 @@
          class="form-horizontal"   
          role="form">
 	{{ add_obj_form.csrf_token }}
-	{# START Object Select #}
-    <div class="form-group">
-     <label class="col-lg-4 control-label" 
-            for="object_template">
-      {{ add_obj_form.object_template.label }}
-     </label>
-     <div class="col-lg-6">
-      <div class="controls">
-       {{ add_obj_form.object_template(class_="form-control") }}
-      </div>
-     </div>
-    {# END Object Select #}
-    </div>
-	
     {# START title #}
     <div class="form-group">
      <label class="col-lg-4 control-label" 
@@ -55,7 +41,7 @@
      </label>
      <div class="col-sm-4"> 
       {{ add_obj_form.creators(class_="form-control") }}
-        <a href="#">
+        <a href="#" data-bind="click: addCreator" id="AddCreatorBtn">
 		 <span class="glyphicon glyphicon-plus-sign"></span> Add
 		</a>
      </div>		
@@ -69,7 +55,8 @@
      {{ add_obj_form.corporate_creators.label }}
      </label>
      <div class="col-sm-4">
-      {{ add_obj_form.corporate_creators(class_="form-control") }}
+      {{ add_obj_form.corporate_creators(**{"class_": "form-control", 
+                                       "data-bind": "value: commonViewModel.institution"}) }}
         <a href="#">
 		 <span class="glyphicon glyphicon-plus-sign"></span> Add
 		</a>
@@ -187,14 +174,15 @@
      </label>
      <div class="col-lg-8">
       <div class="controls">
-      {{ add_obj_form.rights_holder(class_="form-control") }}
+      {{ add_obj_form.rights_holder(**{"class_": "form-control", 
+                                         "data-bind": "value: commonViewModel.rightsStatement"}) }}
       </div> 
      </div>
     {# END Use and Reproduction Rights Holder #}
     </div>
 
     {# START people subjects #}
-    <div class="form-group" data-bind="visible: meetingMinutesTemplate">
+    <div class="form-group">
      <label class="control-label col-lg-4" for="subject_people">
      {{ add_obj_form.subject_people.label }}
      </label>
@@ -202,7 +190,7 @@
       <div class="controls">
       {{ add_obj_form.subject_people(class_="form-control") }}
       <a href="#" data-bind="click: addPerson" id="AddPersonBtn">
-        <i class="glyphicon glyphicon-plus-sign"></i>
+        <i class="glyphicon glyphicon-plus-sign"></i> Add
       </a>
       </div>
      </div>
@@ -215,9 +203,10 @@
      </label>
      <div class="col-lg-4">
       <div class="controls">
-       {{ add_obj_form.subject_places(class_="form-control") }}
+       {{ add_obj_form.subject_places(**{"class_": "form-control", 
+                                         "data-bind": "value: commonViewModel.location"}) }}
        <a href="#" data-bind="click: addPlace" id="AddPlaceBtn">
-        <i class="glyphicon glyphicon-plus-sign"></i>
+        <i class="glyphicon glyphicon-plus-sign"></i> Add
        </a>
       </div>
      </div>
@@ -232,7 +221,7 @@
       <div class="controls">
       {{ add_obj_form.subject_topics(class_="form-control") }}
       <a href="#" data-bind="click: addTopic" id="AddTopicBtn">
-       <i class="glyphicon glyphicon-plus-sign"></i>
+       <i class="glyphicon glyphicon-plus-sign"></i> Add
       </a>
       </div>
      </div>
@@ -248,21 +237,22 @@
       <div class="controls">
       {{ add_obj_form.subject_dates(class_="form-control") }}
       <a href="#" data-bind="click: addDate" id="AddDateBtn">
-       <i class="glyphicon glyphicon-plus-sign"></i>
+       <i class="glyphicon glyphicon-plus-sign"></i> Add
       </a>
       </div>
      </div>
     {# END date subjects #}
     </div>	
 	
-	{# START organizations #}
+    {# START organizations #}
     <div class="form-group">
      <label class="control-label col-lg-4" for="organizations">
      {{ add_obj_form.organizations.label }}
      </label>
      <div class="col-lg-4">
       <div class="controls">
-      {{ add_obj_form.organizations(class_="form-control", default="{{ config['INSTITUTION'] }}") }}
+      {{ add_obj_form.organizations(**{"class_": "form-control", 
+                                       "data-bind": "value: commonViewModel.institution"}) }}
       <a href="#" data-bind="click: addOrganization" id="AddOrgBtn">
        <i class="glyphicon glyphicon-plus-sign"></i> Add
       </a>

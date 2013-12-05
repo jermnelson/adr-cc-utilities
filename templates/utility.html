@@ -9,7 +9,10 @@
   {% block work_form %}{% endblock %}
   {# END Form section #} 
   </div>
+  <div class="col-md-4">
   {% include 'snippets/utility-listing.html' %}
+  {% block more_right_view %}{% endblock %}
+  </div>
 {# END Main View Row #}
 </div>
 {% endblock %}

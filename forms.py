@@ -43,6 +43,13 @@ OBJECT_TEMPLATES = [(0, 'Choose model'),
                     (4, 'Video'),
                     (5, 'Master (All fields)')]
 
+class MODSCommonVariablesForm(Form):
+    """CRUD operations on variables that are common to all MODS loads"""
+    institution = TextAreaField()
+    location = TextAreaField()
+    rights_statement = TextAreaField()
+    
+
 class MODSFedoraObjectForm(Form):
     admin_note = TextAreaField('Administrative Notes',
                             [Length(max=1500)])
@@ -91,11 +98,6 @@ class MODSFedoraObjectForm(Form):
 ##                                                 'data-bind':'value: chosenContentModel, click: displayContentModel'}))
     organizations = TextField('Organizations',
                               [Length(max=255)])
-##    organizations = forms.CharField(max_length=255,
-##                                    required=False,
-##                                    initial=INSTITUTION_NAME,
-##                                    widget=forms.TextInput(
-##                                         attrs={'class': 'form-control'}))
     rights_holder = TextField('Rights Statement',
                               [Length(max=255)])
 ##                                    label='Rights Statement',

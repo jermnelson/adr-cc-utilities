@@ -11,9 +11,13 @@ __author__ = "Jeremy Nelson"
 __license__ = 'Apache License, Version 2.0'
 __copyright__ = '(c) 2013 by Jeremy Nelson'
 
+import sys
+import urlparse
+import webbrowser
+
 from flask import Flask, request, session, redirect, url_for
 from flask import abort, jsonify, render_template, flash
-from forms import MODSFedoraObjectForm
+from forms import MODSCommonVariablesForm, MODSFedoraObjectForm
 
 #! Hack to load Fedora commons Flask Extension for test and usage
 import sys
@@ -58,6 +62,7 @@ def batch_template_add():
     template."""
     return render_template('batch-template-add.html',
                            add_obj_form=MODSFedoraObjectForm(),
+                           mods_common_form=MODSCommonVariablesForm(),
                            section='batch-add')
 
 
@@ -71,5 +76,6 @@ if __name__ == '__main__':
                 port=port,
                 debug=True)
     else:
+        webbrowser.open("http://localhost:{0}/".format(port))
         app.run(host=host,
                 port=port)

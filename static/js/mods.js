@@ -1,5 +1,49 @@
+var MODSCommonViewModel = {
+
+  editingInstitution : ko.observable(false), 
+  editingLocation : ko.observable(false), 
+  editingRightsStatement : ko.observable(false), 
+  
+  institution : ko.observable(),
+  location : ko.observable(),
+  rightsStatement : ko.observable(),
+  
+};
+
+
+MODSCommonViewModel.editInstitution = ko.computed({
+   read: function() {
+     this.editingInstitution(false);
+   },
+   write: function(value) {
+     this.editingInstitution(true);
+   }
+}, MODSCommonViewModel);
+
+MODSCommonViewModel.editLocation = ko.computed({
+   read: function() {
+     this.editingLocation(false);
+   },
+   write: function(value) {
+     this.editingLocation(true);
+   }
+}, MODSCommonViewModel);
+
+MODSCommonViewModel.editRightsStatement = ko.computed({
+   read: function() {
+     this.editingRightsStatement(false);
+   },
+   write: function(value) {
+     this.editingRightsStatement(true);
+   }
+}, MODSCommonViewModel);
+
 function MODSStubViewModel() {
    var self = this;
+   self.commonViewModel =  MODSCommonViewModel; 
+   self.commonViewModel.institution("Colorado College");
+   self.commonViewModel.location("Colorado Springs, Colorado");
+   self.commonViewModel.rightsStatement("Copyright by Colorado College, all rights reserved.");
    self.chosenContentModel = ko.observable();
    self.extentValue = ko.observable();
    self.formValue = ko.observable();

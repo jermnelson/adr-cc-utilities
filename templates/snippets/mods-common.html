@@ -1,0 +1,54 @@
+<h4>Shared Variables</h4> 
+<p>These variables are common to each batch load and are loaded from the 
+   <strong>form-variables.cfg</strong> configuration file.</p> 
+<table class="table table-striped"> 
+  <thead>
+   <tr>
+     <th>Name</th>
+     <th>Value</th>
+     <th>Default MODS fields</th>
+   </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+     <td>INSTITUTION_NAME</td>
+     <td><span data-bind="visible: !commonViewModel.editingInstitution(), 
+                          text: commonViewModel.institution, 
+                          click: commonViewModel.editInstitution">&nbsp;</span>
+         {{ mods_common_form.institution(**{"class_": "form-control", 
+                                            "data-bind": "visible: commonViewModel.editingInstitution, 
+                                                          value: commonViewModel.institution,
+                                                          hasFocus: commonViewModel.editingInstitution"}) }}
+     </td>
+     <td>Corporate Creators, Organization</td> 
+    </tr>
+    <tr>
+     <td>LOCATION</td>
+     <td><span data-bind="visible: !commonViewModel.editingLocation(), 
+                          text: commonViewModel.location, 
+                          click: commonViewModel.editLocation">&nbsp;</span>
+         {{ mods_common_form.location(**{"class_": "form-control", 
+                                          "data-bind": "visible: commonViewModel.editingLocation, 
+                                                          value: commonViewModel.location,
+                                                          hasFocus: commonViewModel.editingLocation"}) }}
+
+     </td>
+     <td>Place</td>
+    </tr>
+    <tr>
+     <td>RIGHTS_STATEMENT</td>
+     <td><span data-bind="visible: !commonViewModel.editingRightsStatement(), 
+                          text: commonViewModel.rightsStatement, 
+                          click: commonViewModel.editRightsStatement">&nbsp;</span>
+         {{ mods_common_form.rights_statement(**{"class_": "form-control", 
+                                                 "data-bind": "visible: commonViewModel.editingRightsStatement, 
+                                                               value: commonViewModel.rightsStatement,
+                                                              hasFocus: commonViewModel.editingRightsStatement"}) }}
+
+     </td>
+     <td>Rights Statement</td>
+    </tr>
+
+  </tbody>
+</table>

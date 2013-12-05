@@ -16,6 +16,10 @@
  #}
 {% endblock %}
 
+{% block more_right_view %}
+{% include 'snippets/mods-common.html' %}
+{% endblock %}
+
 {% block more_js %}
 <script src="{{ url_for('static', filename='js/mods.js') }}"></script>
 <script>
