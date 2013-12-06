@@ -5,6 +5,7 @@
    <p>Adds one or more brief Fedora Objects using a MODS 
       template of prefilled data to the digital repository.</p>
    <form method="POST"
+         action="/batch-template-add"
          class="form-horizontal"   
          role="form">
 	{{ add_obj_form.csrf_token }}
@@ -57,7 +58,7 @@
      <div class="col-sm-4">
       {{ add_obj_form.corporate_creators(**{"class_": "form-control", 
                                        "data-bind": "value: commonViewModel.institution"}) }}
-        <a href="#">
+        <a href="#" data-bind="click: addCorporateCreator" id="AddCorporateCreatorBtn">
 		 <span class="glyphicon glyphicon-plus-sign"></span> Add
 		</a>
      </div>			 
@@ -72,7 +73,7 @@
      {# START size #}
      <div class="col-sm-4">
       {{ add_obj_form.contributors(class_="form-control") }}
-      <a href="#">
+      <a href="#" data-bind="click: addContributor" id="AddContributorBtn" >
         <i class="glyphicon glyphicon-plus-sign"></i> Add
       </a>
      </div>
@@ -86,7 +87,7 @@
      </label>
      <div class="col-sm-4">
       {{ add_obj_form.corporate_contributors(class_="form-control") }}
-      <a href="#">
+      <a href="#" data-bind="click: addCorporateContributor" id="AddCorporateContributorBtn">
         <span class="glyphicon glyphicon-plus-sign"></span> Add
       </a>
      </div>
