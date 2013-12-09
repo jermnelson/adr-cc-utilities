@@ -20,13 +20,11 @@ from flask import Flask, request, session, redirect, url_for
 from flask import abort, jsonify, render_template, flash
 from forms import MODSCommonVariablesForm, MODSFedoraObjectForm
 
-#! Hack to load Fedora commons Flask Extension for test and usage
-import sys
-sys.path.append("C:\\Users\\jernelson\\Development\\flask-fedora")
 from flask_fedora_commons import FedoraCommons
 
 app = Flask(__name__)
 app.config.from_pyfile('fedora.cfg')
+app.config.from_pyfile('form-variables.cfg')
 fedora = FedoraCommons(app)
 
 # Helper functions
@@ -37,6 +35,7 @@ def create_mods(form):
         return render_template(
             'mods-stub.xml',
             admin_note=form.get('admin_note', None),
+            config=app.config,
             contributors=form.getlist('contributors'),
             corporate_contributors=form.getlist('corporate_contributors'),
             corporate_creators=form.getlist('corporate_creators'),

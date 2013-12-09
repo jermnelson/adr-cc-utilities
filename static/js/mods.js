@@ -41,11 +41,9 @@ MODSCommonViewModel.editRightsStatement = ko.computed({
 function MODSStubViewModel() {
    var self = this;
    self.commonViewModel =  MODSCommonViewModel; 
-   self.commonViewModel.institution("Colorado College");
-   self.commonViewModel.location("Colorado Springs, Colorado");
-   self.commonViewModel.rightsStatement("Copyright by Colorado College, all rights reserved.");
    self.chosenContentModel = ko.observable();
    self.extentValue = ko.observable();
+   self.fedoraContentModels = ko.observableArray();
    self.formValue = ko.observable();
    self.showAlternativeTitle = ko.observable(false);
    self.showContributors = ko.observable(false);

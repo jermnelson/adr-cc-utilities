@@ -278,7 +278,20 @@
       </div>
     </div>
     {# END frequency #}
-	
+
+    {# START Fedora Content Model #}
+    <div class="form-group">
+     <label class="control-label col-lg-4" for="content_model">
+     {{ add_obj_form.content_model.label }}
+     </label>
+     <div class="col-lg-4">
+       <div class="controls">
+       {{ add_obj_form.content_model(**{"class_": "form-control",
+                                        "data-bind": "options: fedoraContentModels"}) }}
+       </div>
+     </div>
+    {# END Fedora Content Model #}
+    </div>
     {# START Parent Collection PID #}
     <div class="form-group">
      <label class="control-label col-lg-4" for="collection_pid">

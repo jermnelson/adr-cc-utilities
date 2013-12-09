@@ -5,7 +5,7 @@ Setup for Alliance Digital Repository - Colorado College Utilities
 This Flask application provides a lightweight app for a number of utilities
 to help manage a Fedora Commons digital repository
 """
-__version_info__ = ('0', '0', '1')
+__version_info__ = ('0', '0', '2')
 __version__ = '.'.join(__version_info__)
 __author__ = "Jeremy Nelson"
 __license__ = 'Apache License, Version 2.0'
@@ -15,7 +15,7 @@ from setuptools import setup
 
 setup(
     name='ADR Colorado College Utilities',
-    version='0.0.1',
+    version='0.0.2',
     url='http://github.com/jermnelson/adr-cc-utilities',
     license='Apache License, Version 2.0',
     author=__author__,
@@ -33,12 +33,12 @@ setup(
     ],
     classifiers=[
         'Environment :: Web Environment',
+        'Framework :: Flask',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache 2 License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
-        'Topic :: Software Development :: Framework :: Flask',
         'Topic :: Software Development :: Libraries :: Python Modules'
 
     ]

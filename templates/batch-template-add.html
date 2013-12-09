@@ -23,6 +23,19 @@
 {% block more_js %}
 <script src="{{ url_for('static', filename='js/mods.js') }}"></script>
 <script>
-ko.applyBindings(new MODSStubViewModel());
+var view_model = new MODSStubViewModel();
+{% if config.INSTITUTION_NAME %} {# INSTITUTION_NAME #}
+view_model.commonViewModel.institution("{{ config['INSTITUTION_NAME'] }}");
+{% endif %}
+{% if config.LOCATION %}
+view_model.commonViewModel.location("{{ config.LOCATION }}");
+{% endif %}
+{% if config.RIGHTS_STATEMENTS %}
+view_model.commonViewModel.rightsStatement("{{ config.RIGHTS_STATEMENTS }}");
+{% endif %}
+{% for model in config.CONTENT_MODELS %}
+view_model.fedoraContentModels.push("{{ model }}");
+{% endfor %}
+ko.applyBindings(view_model);
 </script>
 {% endblock %}

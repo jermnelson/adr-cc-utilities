@@ -1,5 +1,6 @@
 *.pyc
 *.swp
 fedora.cfg
+form-variables.cfg
 docs/_build
 docs/_templates

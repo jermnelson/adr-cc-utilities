@@ -31,6 +31,17 @@ MARC_FREQUENCY = [('choose', 'Choose...'),
                   ('Triennial', 'Triennial - every 3 years'),
                   ('Completely irregular', 'Completely irregular')]
 
+MARC_LEADER_06 = [('text', 'text'),
+                  ('cartographic', 'cartographic'),
+                  ('notated music', 'notated music'),
+                  ('sound recording-musical', 'sound recording-musical'),
+                  ('sound recording-nonmusical', 'sound recording-nonmusical'),
+                  ('still image', 'still image'),
+                  ('moving image', 'moving image'),
+                  ('three dimensional object', 'three dimensional object'),
+                  ('software, multimedia', 'software, multimedia'),
+                  ('mixed material', 'mixed material')]
+
 DIGITAL_ORIGIN = [(1, 'born digital'),
                   (2, 'reformatted digital'),
                   (3, 'digitized microfilm'),
@@ -45,9 +56,9 @@ OBJECT_TEMPLATES = [(0, 'Choose model'),
 
 class MODSCommonVariablesForm(Form):
     """CRUD operations on variables that are common to all MODS loads"""
-    institution = TextAreaField()
-    location = TextAreaField()
-    rights_statement = TextAreaField()
+    institution = TextField()
+    location = TextField()
+    rights_statement = TextField()
     
 
 class MODSFedoraObjectForm(Form):
@@ -57,6 +68,8 @@ class MODSFedoraObjectForm(Form):
                                 )
     collection_pid = TextField("PID of Parent Collection",
                                 [DataRequired, Length(max=20)])
+    content_model = SelectField("Fedora Content Model",
+                                choices=[])
 
     contributors = TextField("Contributors")
     corporate_contributors = TextField()
@@ -86,25 +99,12 @@ class MODSFedoraObjectForm(Form):
 ##                                              attrs={'class': 'form-control'}))
     number_objects = TextField('Number of stub records',
                                default=1)
-##                                     label=
-##                                     max_length=5,
-##                                     widget=forms.TextInput(
-##                                         attrs={'class': 'form-control'}))
     object_template = SelectField('Content Model Template',
                                   choices=OBJECT_TEMPLATES)
-##                                        widget=forms.Select(
-##                                            attrs={
-##                                                 'class': 'form-control',
-##                                                 'data-bind':'value: chosenContentModel, click: displayContentModel'}))
     organizations = TextField('Organizations',
                               [Length(max=255)])
     rights_holder = TextField('Rights Statement',
                               [Length(max=255)])
-##                                    label='Rights Statement',
-##                                    initial=RIGHTS_STATEMENT,
-##                                    widget=forms.Textarea(
-##                                        attrs={'rows': 3,
-##                                               'class': 'form-control'}))
     subject_dates = TextField('Subject -- Dates')
     subject_people = TextField('Subject -- People')
     subject_places = TextField('Subject -- Places')
@@ -112,9 +112,5 @@ class MODSFedoraObjectForm(Form):
 
     title = TextField('Title',
                       [Length(max=120)])
-    type_of_resource = TextField()
-##        label='Type of Resource',
-##        required=False,
-##        widget=forms.TextInput(
-##            attrs={'data-bind': 'value: typeOfResource',
-##                   'class': 'form-control'}))
+    type_of_resource = SelectField("Type of Resource",
+                                   choices=MARC_LEADER_06)

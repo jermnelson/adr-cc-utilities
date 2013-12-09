@@ -1,4 +1,4 @@
-<div class="panel panel-primary">
+<div class="panel panel-info">
  <div class="panel-heading">
   <h3 class="panel-title">Shared Variables</h3> 
  </div>
@@ -27,7 +27,7 @@
                                                           value: commonViewModel.institution,
                                                           hasFocus: commonViewModel.editingInstitution"}) }}
      </td>
-     <td>Corporate Creators, Organization</td> 
+     <td data-bind="visible: !commonViewModel.editingInstitution()">Corporate Creators, Organization</td> 
     </tr>
     <tr>
      <td>LOCATION</td>
