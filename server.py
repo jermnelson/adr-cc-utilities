@@ -5,12 +5,13 @@ Alliance Digital Repository - Colorado College Utilities
 A simple web-based application for a number of management and ingestion
 tasks for a Fedora Commons digital repository.
 """
-__version_info__ = ('0', '0', '1')
+__version_info__ = ('0', '0', '2')
 __version__ = '.'.join(__version_info__)
 __author__ = "Jeremy Nelson"
 __license__ = 'Apache License, Version 2.0'
 __copyright__ = '(c) 2013 by Jeremy Nelson'
 
+import argparse
 import datetime
 import sys
 import urlparse
@@ -57,13 +58,13 @@ def create_mods(form):
 
 @app.route('/')
 def default():
-    "Default view of utilities"
+    "Default route for web app"
     return render_template('index.html')
                            
 
 @app.route("/pid-mover", methods=['POST', 'GET'])
 def pid_mover():
-    "PID Mover view"
+    "PID Mover view and route"
     # Should be an AJAX call
     if request.method == 'POST':
         collection_pid = request.form['collection_pid']
@@ -106,14 +107,26 @@ def batch_template_add():
 
 
 if __name__ == '__main__':
-    host = '0.0.0.0'
-    port = 8003
-    mode = 'dev'
-    if mode == 'dev':
-        app.run(host=host,
-                port=port,
-                debug=True)
-    else:
+    parser = argparse.ArgumentParser(
+      description='ADR CC Utilities Web App')
+    parser.add_argument('mode',
+        help='Run in either prod (production) or dev (development)')
+    parser.add_argument('--host',
+        default='0.0.0.0',
+        help='Host IP address, defaults to 0.0.0.0',
+        required=False)
+    parser.add_argument('--port',
+        default=8003,
+        help='http port to run web app, default is 8003',
+        required=False)
+    host = parser.parse_args().host
+    port = int(parser.parse_args().port)
+    mode = parser.parse_args().mode
+    if mode == 'prod':
         webbrowser.open("http://localhost:{0}/".format(port))
         app.run(host=host,
                 port=port)
+    else:
+        app.run(host=host,
+                port=port,
+                debug=True)

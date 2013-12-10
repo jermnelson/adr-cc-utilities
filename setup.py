@@ -11,18 +11,18 @@ __author__ = "Jeremy Nelson"
 __license__ = 'Apache License, Version 2.0'
 __copyright__ = '(c) 2013 by Jeremy Nelson'
 
-from setuptools import setup
+from setuptools import find_packages, setup
 
 setup(
     name='ADR Colorado College Utilities',
-    version='0.0.2',
+    version=__version__,
     url='http://github.com/jermnelson/adr-cc-utilities',
     license='Apache License, Version 2.0',
     author=__author__,
     author_email='jermnelson@gmail.com',
     description='App for simple management tasks for Fedora digital repository.',
     long_description=__doc__,
-    py_modules=['utilities'],
+    packages=find_packages(),
     zip_safe=False,
     include_package_data=True,
     platforms='any',
