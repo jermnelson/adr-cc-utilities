@@ -21,7 +21,7 @@ from https://github.com/jermnelson/adr-cc-utilities/::
 or download a `zip file <https://github.com/jermnelson/adr-cc-utilities/archive/master.zip>`_
 and unzip the  file to create the app's working directory.::
 
-    $ unzip adr-cc-utilities.zip
+    $ unzip adr-cc-utilities-master.zip adr-cc-utilities
 
 Change directories to the new ``adr-cc-utilities`` directory and run this 
 command to install the Python modules required by this web app ::
