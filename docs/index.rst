@@ -18,9 +18,8 @@ from https://github.com/jermnelson/adr-cc-utilities/::
 
     $ git clone https://github.com/jermnelson/adr-cc-utilities
 
-or download a zip file from
-the https://github.com/jermnelson/adr-cc-utilities/releases and unzip the 
-file to create the app's working directory.::
+or download a `zip file <https://github.com/jermnelson/adr-cc-utilities/archive/master.zip>`_
+and unzip the  file to create the app's working directory.::
 
     $ unzip adr-cc-utilities.zip
 
