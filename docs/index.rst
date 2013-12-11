@@ -5,6 +5,8 @@
 
 ADR and Colorado College Utilities Web App Documentation
 ========================================================
+All technical documentation is located at 
+https://readthedocs.org/projects/adr-cc-utilities-web-app
 
 .. toctree::
    :maxdepth: 3
@@ -81,3 +83,4 @@ Indices and tables
 * :ref:`search`
 
 .. _Flask Fedora Commons Documentation: http://pythonhosted.org/Flask-FedoraCommons/#configuration
+.. _Fedora Commons: http://fedora-commons.org/
