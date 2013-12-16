@@ -1,5 +1,6 @@
 *.pyc
 *.swp
+*.egg-info
 fedora.cfg
 form-variables.cfg
 docs/_build

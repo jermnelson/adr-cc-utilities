@@ -5,7 +5,7 @@ Setup for Alliance Digital Repository - Colorado College Utilities
 This Flask application provides a lightweight app for a number of utilities
 to help manage a Fedora Commons digital repository
 """
-__version_info__ = ('0', '0', '2')
+__version_info__ = ('0', '2', '0')
 __version__ = '.'.join(__version_info__)
 __author__ = "Jeremy Nelson"
 __license__ = 'Apache License, Version 2.0'

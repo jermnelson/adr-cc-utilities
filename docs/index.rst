@@ -11,6 +11,13 @@ https://readthedocs.org/projects/adr-cc-utilities-web-app
 .. toctree::
    :maxdepth: 3
 
+WARNING!!!
+----------
+This web app has read/write access to your depository 
+and is designed to run internally on your institution's network. **DO NOT** 
+allow open-web access to this web app unless you are prepared for the 
+consequences. 
+
 Installing
 ----------
 To install this web app, you can either fork/clone the project's source code 
@@ -31,21 +38,57 @@ command to install the Python modules required by this web app ::
 
 Configuration
 -------------
-To use this web app, you'll need two Flask configuration files, **fedora.cfg** 
-and **form-variables.cfg** both located in ``adr-cc-utilities`` directory.
-Variables for **fedora.cfg** are listed in the configuration section in the
-`Flask Fedora Commons Documentation`_.
+To use this web app, you'll need to first copy create two Flask configuration files: 
+**fedora.cfg** and **form-variables.cfg** both located in ``adr-cc-utilities`` 
+directory. 
 
+From Windows ::
+
+    $ copy example-fedora.cfg fedora.cfg
+    $ copy example-form-variables.cfg form-variables.cfg
+
+
+For Linux, MacOS, or Window Powershell ::
+
+    $ cp example-fedora.cfg fedora.cfg
+    $ cp example-form-variables.cfg form-variables.cfg
+
+You then need to change the following variables in each of the configuration
+files to match your Fedora Commons Server root, location, username, 
+and password along with Institutional details for the batch Fedora Objects
+ingestion.
+
+fedora.cfg
+^^^^^^^^^^
+Variables for **fedora.cfg** are listed in the configuration section in the
+`Flask Fedora Commons Documentation`_ as well. 
+
+====================== ======================================
+`FEDORA_ROOT`          'http://fedora.host.name:8080/fedora/'
+`FEDORA_USER`          'user'
+`FEDORA_PASSWORD`      'password'
+`FEDORA_PIDSPACE`      'changeme'
+`FEDORA_TEST_ROOT`     'http://fedora.host.name:8180/fedora/'
+`FEDORA_TEST_PIDSPACE` 'testme'
+====================== ======================================
+
+
+form-variables.cfg
+^^^^^^^^^^^^^^^^^^
 Variables in **form-variables.cfg** provide common information, such as 
 INSTITUTION_NAME, for the forms used in this web app These variables (and
 examples values) are :
 
-=================== ====================================================
+=================== ==========================================================
+`SECRET_KEY`        ''
 `CONTENT_MODELS`    '["adr:adrBasicObject", "adr:adrETD"]'
-`INSTITUTION_NAME`  'Colorado College'
-`LOCATION`          'Colorado Springs, Colorado'
-`RIGHTS_STATEMENTS` 'Copyright by Colorado College, all rights reserved'
-=================== ====================================================
+`INSTITUTION_NAME`  'Any Memory Institution'
+`LOCATION`          'City, State'
+`RIGHTS_STATEMENTS` 'Copyright by Any Memory Institution, all rights reserved'
+=================== ==========================================================
+
+The `SECRET_KEY` variable is needed by the WTForms, put a random string of 
+characters. 
 
 Running as a local web app
 --------------------------
