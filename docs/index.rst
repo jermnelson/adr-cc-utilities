@@ -32,7 +32,7 @@ command-line and follow these directions (assuming `adr-cc-utilities-win32-env.z
 unzipped from current user's **Downloads** directory) ::
 
     C:\Users\current_user\Downloads>cd adr-cc-utilities-win32-env 
-    C:\Users\current_user\Downloads>start.bat
+    C:\Users\current_user\Downloads\adr-cc-utilities-win32-env\start.bat
     Running ADR-CC-Utilities Locally in Dev mode
     To stop server, use ctrl-c key combination
     Connect with your web-browser at http://localhost:8003/
