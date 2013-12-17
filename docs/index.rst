@@ -18,14 +18,40 @@ and is designed to run internally on your institution's network. **DO NOT**
 allow open-web access to this web app unless you are prepared for the 
 consequences. 
 
-Installing
-----------
+Using Windows Preloaded Environment
+------------------------------------
+
+To run this web app from pre-built Windows 32-bit environment, download the
+`adr-cc-utilities-win32-env.zip <https://docs.google.com/file/d/0B_w6vMpHL8o_S3I3WHoxNTBkN2c>`_
+and unzip to a working directory. 
+
+Go to the Configuration section below and follow 
+the directions to configure the **fedora.cfg** and **form-variables.cfg** to properly 
+run this web app. To run the web app from the windows environment, open a Windows 
+command-line and follow these directions (assuming `adr-cc-utilities-win32-env.zip` was saved and
+unzipped from current user's **Downloads** directory) ::
+
+    C:\Users\current_user\Downloads>cd adr-cc-utilities-win32-env 
+    C:\Users\current_user\Downloads>start.bat
+    Running ADR-CC-Utilities Locally in Dev mode
+    To stop server, use ctrl-c key combination
+    Connect with your web-browser at http://localhost:8003/
+
+To close the running web app, use the `ctrl-c` key combination in the command line window
+that is running. You should now be able to connect to the web app from your browser at
+`http://localhost:8003/ <http://localhost:8003>`_.
+
+Installing from Source
+----------------------
+To use this web app on Linux or Macintosh, follow these directions to install 
+using either `git` or by downloading a source zip file.
+
 To install this web app, you can either fork/clone the project's source code 
 from https://github.com/jermnelson/adr-cc-utilities/:: 
 
     $ git clone https://github.com/jermnelson/adr-cc-utilities
 
-or download a `zip file <https://github.com/jermnelson/adr-cc-utilities/archive/master.zip>`_
+download a `zip file <https://github.com/jermnelson/adr-cc-utilities/archive/master.zip>`_
 and unzip the  file to create the app's working directory.::
 
     $ unzip adr-cc-utilities-master.zip adr-cc-utilities
@@ -35,6 +61,7 @@ command to install the Python modules required by this web app ::
 
     $ cd adr-cc-utilities
     $ python setup.py install
+
 
 Configuration
 -------------
