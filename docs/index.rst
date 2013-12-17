@@ -13,8 +13,8 @@ https://readthedocs.org/projects/adr-cc-utilities-web-app
 
 WARNING!!!
 ----------
-This web app has read/write access to your depository 
-and is designed to run internally on your institution's network. **DO NOT** 
+This web app has read/write access to your repository 
+and is designed to be run internally on your institution's network. **DO NOT** 
 allow open-web access to this web app unless you are prepared for the 
 consequences. 
 
